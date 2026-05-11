@@ -1,0 +1,3 @@
+/home/visal/devops-project/build/CMakeFiles/app.dir
+/home/visal/devops-project/build/CMakeFiles/edit_cache.dir
+/home/visal/devops-project/build/CMakeFiles/rebuild_cache.dir

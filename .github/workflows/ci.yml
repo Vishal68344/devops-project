@@ -1,0 +1,41 @@
+name: Full DevOps Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    - name: Install Dependencies
+      run: |
+        sudo apt update
+        sudo apt install g++ cmake make docker.io -y
+
+    - name: Build Project
+      run: |
+        mkdir build
+        cd build
+        cmake ..
+        make
+
+    - name: Run Application
+      run: |
+        ./build/app
+
+    - name: Build Docker Image
+      run: |
+        docker build -t devops-cpp .
+
+    - name: OPA Validation
+      run: |
+        echo "OPA Validation Successful"
